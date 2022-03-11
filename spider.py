@@ -7,8 +7,18 @@ class Spider(scrapy.Spider):
     start_urls = ['https://www.worldcat.org/search?start=%s&%s' % (number, QUERY) for number in range(0, 4400, 10)]
 
     def parse(self, response):
-        for title in response.css('.name a > strong ::text').extract():
-            yield {"title:": title}
+        for searchResult in response.css('.menuElem'):
+            author = searchResult.css('.author ::text').get()
+
+            # Remove 'by ' if the author field starts with that prefix
+            if author[0:3] == "by ":
+                author = author[3:]
+
+            yield {
+                "title:": searchResult.css('.name a > strong ::text').extract(),
+                "author:": author,
+                "publisher:": searchResult.css('.publisher span ::text').extract(),
+            }
 
         # for next_page in response.css('a.next-posts-link'):
         #    yield response.follow(next_page, self.parse)
