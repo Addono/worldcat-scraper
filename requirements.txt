@@ -28,7 +28,7 @@ Scrapy==2.6.2
 service-identity==21.1.0
 six==1.16.0
 tldextract==3.2.0
-Twisted==22.4.0
+Twisted==23.8.0
 typing_extensions==4.1.1
 urllib3==1.26.18
 w3lib==1.22.0
