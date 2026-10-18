@@ -15,7 +15,7 @@ itemloaders==1.0.4
 jmespath==0.10.0
 lxml==4.9.1
 parsel==1.6.0
-Protego==0.2.1
+Protego==0.6.2
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.21
